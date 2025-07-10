@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator tras</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="left">
+        <form action="" onsubmit="return false;" id="form-in">
+            <h1>Wprowadź dane polączeń</h1>
+            <div id="cities">
+
+            </div>
+            <div class="send-btn" id="send-btn">Wyznacz trase<i class="fa-solid fa-magnifying-glass"></i></div>
+        </form>
+        
+    </div>
+    <div class="right">
+        <h1>Podróż</h1>
+        <div class="destination">
+            <div class="dest-box">
+                <div class="a">
+                    <i class="fa-solid fa-arrow-up"></i>
+                    <h3>Z: </h3>
+                </div>
+                <select id="start">
+                    <option>Bydgoszcz</option>
+                    <option>Toruń</option>
+                    <option>Gdańsk</option>
+                    <option>Łódź</option>
+                    <option>Wrocław</option>
+                    <option>Katowice</option>
+                    <option>Warszawa</option>
+                </select>
+            </div>
+            <div class="dest-box">
+                <div class="a">
+
+                    <i class="fa-solid fa-arrow-down"></i>
+                    <h3>Do: </h3>
+                </div>
+                <select id="end">
+                    <option>Bydgoszcz</option>
+                    <option>Toruń</option>
+                    <option>Gdańsk</option>
+                    <option>Łódź</option>
+                    <option>Wrocław</option>
+                    <option>Katowice</option>
+                    <option>Warszawa</option>
+                </select>
+            </div>
+        </div>
+        <div id="output">
+
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

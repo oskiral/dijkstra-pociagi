@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: 	#E5E4E2;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#form-in {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 800px;
+    width: 600px;
+    border-radius: 15px;
+    margin-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: snow;
+}
+.right {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    height: 800px;
+    width: 600px;
+    border-radius: 15px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: snow;
+}
+h1 {
+    padding: 20px;
+}
+h1::after{
+  content: '';
+  border-bottom: 3px solid #DC143C;
+  width: 100%;
+  display: block;
+}
+#cities {
+    margin-top: 50px;
+}
+.input-box {
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.input-box input {
+    height: 30px;
+    padding: 5px 10px 5px 15px;
+    outline: none;
+    border-radius: 10px;
+    border: 1.5px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-box input:focus {
+  border-color: #DC143C;                  /* niebieski akcent */
+  box-shadow: 0 0 8px #9e0d2a;
+}
+.input-box label {
+    font-size: 18px;
+    width: 60%;
+    padding: 3px 20px;
+}
+.min-abs {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.send-btn {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 1em 2em;
+    background-color: #DC143C;
+    color: white;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 10px #9e0d2a;
+    transition: box-shadow 0.3s ease;
+    gap: 5px;
+}
+.fat-text {
+    font-weight: 700;
+}
+#output {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+}
+
+button:hover {
+  box-shadow: 0 6px 15px #9e0d2a;
+}
+
+.destination {
+    display: flex;
+    height: 300px;
+    width: 100%;
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.dest-box {
+    height: 70px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.a {
+    display: flex;
+    justify-content: space-between;
+    gap: 10PX;
+    font-size: 1.5rem;
+    width: 100px;
+}
+select {
+    margin-left: 10px;
+  appearance: none;          
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 40px 10px 15px;  
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  width: 350px;            
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+}
+
+select:focus {
+  border-color: #DC143C;
+  box-shadow: 0 0 6px #9e0d2a;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
