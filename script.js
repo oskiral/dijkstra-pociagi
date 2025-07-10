@@ -121,21 +121,55 @@ function dijkstra(graph, start, end) {
     };
 }
 
+function generateRandomDistances(min = 30, max = 350) {
+    const inputs = document.querySelectorAll("#cities input[type='number']");
+    inputs.forEach(input => {
+        const randomDistance = Math.floor(Math.random() * (max - min + 1)) + min;
+        input.value = randomDistance;
+    });
+}
 
 function main() {
     createForm();
-
+    
+    document.getElementById("generate-btn").addEventListener("click", () => {
+        generateRandomDistances();
+    });
+    
     btn.addEventListener("click", () => {
         const distances = getDistances();
         if (!distances) return;
         const graph = buildGraph(distances);
-
+        
         const start = document.getElementById("start").value;
         const end = document.getElementById("end").value;
-
+        
         const result = dijkstra(graph, start, end);
         
-        outEl.innerHTML = `Najkrótsza droga: <span class="fat-text">${result.path}</span><br/>Czas: <span class="fat-text">${result.distance}min.</span>`;
+        if (result.path) {
+            const pathHTML = result.path
+                .map(city => `<span class="city-box">${city}</span>`)
+                .join('<i class="fa-solid fa-arrow-right arrow-icon"></i>');
+
+            const totalMinutes = result.distance;
+            const hours = Math.floor(totalMinutes / 60);
+            const minutes = totalMinutes % 60;
+
+            let readableTime = '';
+            if (hours > 0) {
+                readableTime += `${hours}h `;
+            }
+            readableTime += `${minutes}min`;
+
+            outEl.innerHTML = `
+                <div class="output-path">${pathHTML}</div>
+                <div class="output-time">⏱️ Czas przejazdu: <strong>${totalMinutes} min</strong> (${readableTime})</div>
+            `;
+        } else {
+            outEl.innerHTML = `
+                <div class="output-time" style="color: #DC143C;">❌ Nie znaleziono trasy</div>
+            `;
+        }
 
     });
 }

@@ -85,6 +85,7 @@ h1::after{
     background-color: #DC143C;
     color: white;
     width: 200px;
+    height: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,21 +95,60 @@ h1::after{
     cursor: pointer;
     box-shadow: 0 4px 10px #9e0d2a;
     transition: box-shadow 0.3s ease;
-    gap: 5px;
+    gap: 10px;
 }
 .fat-text {
     font-weight: 700;
 }
 #output {
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    text-align: center;
+  padding: 30px 20px;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+  border-top: 2px dashed #ccc;
+  width: 90%;
 }
+
+.output-path {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #222;
+  font-size: 1.3rem;
+}
+
+.city-box {
+  background-color: #fff5f7;
+  border: 2px solid #DC143C;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #9e0d2a;
+  box-shadow: 0 4px 10px rgba(156, 29, 29, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.city-box:hover {
+  transform: scale(1.05);
+}
+
+.arrow-icon {
+  font-size: 1.5rem;
+  color: #DC143C;
+}
+
+.output-time {
+  font-size: 1.2rem;
+  color: #444;
+  margin-top: 10px;
+}
+
 
 button:hover {
   box-shadow: 0 6px 15px #9e0d2a;
@@ -172,4 +212,14 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance:textfield; /* Firefox */
+}
+
+@media (max-width: 768px) {
+  .left, .right {
+    width: 90%;
+    margin: 20px 0;
+  }
+  body {
+    flex-direction: column;
+  }
 }
