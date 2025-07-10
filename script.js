@@ -129,6 +129,57 @@ function generateRandomDistances(min = 30, max = 350) {
     });
 }
 
+function renderMap(path) {
+    const cityPositions = {
+        "Bydgoszcz": { x: 100, y: 100 },
+        "Toruń":     { x: 200, y: 150 },
+        "Gdańsk":    { x: 250, y: 50 },
+        "Łódź":      { x: 300, y: 300 },
+        "Wrocław":   { x: 150, y: 500 },
+        "Warszawa":  { x: 450, y: 200 },
+        "Katowice":  { x: 300, y: 550 }
+    };
+
+    const map = document.getElementById("map-placeholder");
+    map.innerHTML = ""; 
+
+    for (let i = 0; i < path.length - 1; i++) {
+        const from = cityPositions[path[i]];
+        const to = cityPositions[path[i + 1]];
+
+        const dx = to.x - from.x;
+        const dy = to.y - from.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+        const line = document.createElement("div");
+        line.className = "connection-line active";
+        line.style.width = `${distance}px`;
+        line.style.left = `${from.x}px`;
+        line.style.top = `${from.y}px`;
+        line.style.transform = `rotate(${angle}deg)`;
+        map.appendChild(line);
+    }
+
+
+    for (const [city, pos] of Object.entries(cityPositions)) {
+        const node = document.createElement("div");
+        node.className = "city-node";
+        if (path.includes(city)) node.classList.add("active");
+        node.style.left = `${pos.x}px`;
+        node.style.top = `${pos.y}px`;
+
+        const label = document.createElement("div");
+        label.className = "city-label";
+        label.style.left = `${pos.x}px`;
+        label.style.top = `${pos.y - 5}px`;
+        label.innerText = city;
+
+        map.appendChild(node);
+        map.appendChild(label);
+    }
+}
+
 function main() {
     createForm();
     
@@ -165,6 +216,7 @@ function main() {
                 <div class="output-path">${pathHTML}</div>
                 <div class="output-time">⏱️ Czas przejazdu: <strong>${totalMinutes} min</strong> (${readableTime})</div>
             `;
+            renderMap(result.path);
         } else {
             outEl.innerHTML = `
                 <div class="output-time" style="color: #DC143C;">❌ Nie znaleziono trasy</div>
